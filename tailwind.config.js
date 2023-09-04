@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-import triangle from './src/assets/images/bg-triangle.svg';
+
 export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       backgroundImage: {
-        triangle: "url(triangle)",
+        triangle: "url('./src/assets/images/bg-triangle.svg')",
         pentagone: "url('./src/assets/images/bg-pentagon.svg')",
       },
       colors: {
