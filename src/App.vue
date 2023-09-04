@@ -10,9 +10,9 @@ import { ref, watch } from "vue";
 let playedValue = ref("");
 
 let datas = [
-  { nom: "pierre", src: "./assets/images/icon-rock.svg" },
-  { nom: "feuille", src: "./assets/images/icon-paper.svg" },
-  { nom: "ciseau", src: "./assets/images/icon-scissors.svg" },
+  { nom: "pierre", src: "../assets/images/icon-rock.svg" },
+  { nom: "feuille", src: "../assets/images/icon-paper.svg" },
+  { nom: "ciseau", src: "../assets/images/icon-scissors.svg" },
 ];
 
 let score = ref(0);
