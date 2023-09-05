@@ -80,7 +80,10 @@ let showPopUp = ref(false);
   <Entete :score="score"></Entete>
 
   <div class="h-full w-full flex flex-col items-center justify-around">
-    <Rules :class="showPopUp ? 'block' : 'hidden'"></Rules>
+    <Rules
+      :class="showPopUp ? 'block' : 'hidden'"
+      @close="showPopUp = !showPopUp"
+    ></Rules>
     <step1
       :class="showPopUp ? 'opacity-0' : 'opacity-100'"
       v-if="!playedValue"
