@@ -27,6 +27,7 @@ let houseChoice;
 function checkScore() {
   if (playedValue.value !== "") {
     if (result === "YOU LOSE") {
+      if (score.value == 0) return;
       score.value -= 1;
     } else if (result === "YOU WIN") {
       score.value += 1;
@@ -83,15 +84,20 @@ let showPopUp = ref(false);
   <Entete :score="score"></Entete>
 
   <div class="h-full w-full flex flex-col items-center justify-around">
-    <Rules
-      :class="showPopUp ? 'block' : 'hidden'"
-      @close="showPopUp = !showPopUp"
-    ></Rules>
-    <step1
-      :class="showPopUp ? 'opacity-0' : 'opacity-100'"
-      v-if="!playedValue"
-      @clicked="(e) => updateValue(e)"
-    ></step1>
+    <transition name="slide">
+      <Rules
+        :open="showPopUp"
+        v-if="showPopUp"
+        @close="showPopUp = !showPopUp"
+      ></Rules>
+    </transition>
+    <transition mode="out-in" name="fade">
+      <step1
+        :class="showPopUp ? 'opacity-0' : 'opacity-100'"
+        v-if="!playedValue"
+        @clicked="(e) => updateValue(e)"
+      ></step1>
+    </transition>
 
     <step2
       v-if="playedValue && !houseChoice"
@@ -104,15 +110,17 @@ let showPopUp = ref(false);
       :userChoice="playedValue.src"
     ></step3>
 
-    <step4
-      :class="showPopUp ? 'opacity-0' : 'opacity-100'"
-      @replay="playedValue = ''"
-      v-if="playedValue && result"
-      :houseChoice="houseChoice.src"
-      :userChoice="playedValue.src"
-      :result="result"
-    >
-    </step4>
+    <transition name="slide">
+      <step4
+        :class="showPopUp === true ? 'opacity-0' : 'opacity-100'"
+        @replay="playedValue = ''"
+        v-if="playedValue && result"
+        :houseChoice="houseChoice.src"
+        :userChoice="playedValue.src"
+        :result="result"
+      >
+      </step4>
+    </transition>
 
     <button
       @click="showPopUp = !showPopUp"
@@ -122,3 +130,33 @@ let showPopUp = ref(false);
     </button>
   </div>
 </template>
+
+<style>
+.fade-leave-active,
+.fade-enter-active {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  display: none;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: 0.3s ease-in-out;
+}
+
+.slide-leave-active {
+  @apply opacity-0;
+}
+
+.slide-enter-from {
+  @apply translate-y-3 opacity-0 duration-500;
+}
+.slide-leave-to {
+  @apply -translate-y-3 opacity-0;
+}
+</style>

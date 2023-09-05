@@ -9,12 +9,18 @@ const props = defineProps(["userChoice", "houseChoice", "result"]);
     <div
       class="text-white text-center flex justify-around md:justify-between sm:justify-evenly sm:gap-x-80 gap-x-5"
     >
-      <div class="flex flex-col gap-4 sm:flex-col-reverse">
+      <div
+        class="flex flex-col gap-4 sm:flex-col-reverse"
+        :class="result === 'YOU WIN' ? 'animate-bounce' : ''"
+      >
         <BoutonElement :element="userChoice" class="border-red-500 relative">
         </BoutonElement>
         <p>you picked</p>
       </div>
-      <div class="flex flex-col sm:flex-col-reverse gap-4 items-center">
+      <div
+        class="flex flex-col sm:flex-col-reverse gap-4 items-center"
+        :class="result === 'YOU LOSE' ? 'animate-bounce' : ''"
+      >
         <BoutonElement
           :element="houseChoice"
           class="relative border-yellow-500"
@@ -26,7 +32,9 @@ const props = defineProps(["userChoice", "houseChoice", "result"]);
     <div
       class="sm:absolute sm:inset-0 sm:mx-auto flex flex-col gap-4 items-center justify-center h-full"
     >
-      <p class="text-white text-6xl font-bold text-center">{{ result }}</p>
+      <p class="text-white text-6xl font-bold text-center animate-pulse">
+        {{ result }}
+      </p>
       <button
         class="w-52 py-2 rounded bg-white"
         :class="result === 'YOU WIN' ? 'text-darkText' : 'text-red-500'"
