@@ -7,7 +7,7 @@ const props = defineProps(["userChoice", "houseChoice", "result"]);
 <template>
   <section class="w-full sm:relative px-16">
     <div
-      class="text-white text-center flex justify-around md:justify-between sm:justify-evenly sm:gap-x-80 gap-4"
+      class="text-white text-center flex justify-around md:justify-between sm:justify-evenly sm:gap-x-80 gap-x-5"
     >
       <div class="flex flex-col gap-4 sm:flex-col-reverse">
         <BoutonElement :element="userChoice" class="border-red-500 relative">
