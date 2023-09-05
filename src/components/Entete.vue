@@ -5,7 +5,7 @@ let props = defineProps(["score"]);
 
 <template>
   <div
-    class="container p-4 border-4 border-headerOutline rounded list-none flex justify-between"
+    class="p-4 border-4 border-headerOutline rounded list-none flex justify-between gap-20 sm:gap-60"
   >
     <div class="text-gray-200 font-bold text-lg">
       <img :src="logo" />
