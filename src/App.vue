@@ -122,12 +122,14 @@ let showPopUp = ref(false);
       </step4>
     </transition>
 
-    <button
-      @click="showPopUp = !showPopUp"
-      class="sm:absolute sm:bottom-4 sm:right-4 px-10 border-4 border-headerOutline text-gray-200 rounded"
-    >
-      rules
-    </button>
+    <transition mode="out-in" name="fade">
+      <button
+        @click="showPopUp = !showPopUp"
+        class="sm:absolute sm:bottom-4 sm:right-4 px-10 border-4 border-headerOutline text-gray-200 rounded"
+      >
+        rules
+      </button>
+    </transition>
   </div>
 </template>
 
