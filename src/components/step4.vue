@@ -26,7 +26,7 @@ const props = defineProps(["userChoice", "houseChoice", "result"]);
     <div
       class="sm:absolute sm:inset-0 sm:mx-auto flex flex-col gap-4 items-center justify-center h-full"
     >
-      <p class="text-white text-6xl font-bold">{{ result }}</p>
+      <p class="text-white text-6xl font-bold text-center">{{ result }}</p>
       <button
         class="w-52 py-2 rounded bg-white"
         :class="result === 'YOU WIN' ? 'text-darkText' : 'text-red-500'"
