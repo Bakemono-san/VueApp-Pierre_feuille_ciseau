@@ -27,7 +27,11 @@ const props = defineProps(["userChoice", "houseChoice", "result"]);
       class="sm:absolute sm:inset-0 sm:mx-auto flex flex-col gap-4 items-center justify-center h-full"
     >
       <p class="text-white text-6xl font-bold">{{ result }}</p>
-      <button class="w-52 py-2 rounded bg-white" @click="$emit('replay')">
+      <button
+        class="w-52 py-2 rounded bg-white"
+        :class="result === 'YOU WIN' ? 'text-darkText' : 'text-red-500'"
+        @click="$emit('replay')"
+      >
         play again
       </button>
     </div>
