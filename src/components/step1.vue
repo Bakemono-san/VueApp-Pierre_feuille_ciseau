@@ -33,3 +33,9 @@ let ciseau = { nom: "ciseau", src: Ciseau };
     </BoutonElement>
   </div>
 </template>
+
+<style>
+.bg-triangle {
+  background-image: url("../assets/images/bg-triangle.svg");
+}
+</style>

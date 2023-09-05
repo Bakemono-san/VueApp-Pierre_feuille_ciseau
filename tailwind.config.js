@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        triangle: "url('./src/assets/images/bg-triangle.svg')",
+        // triangle: "url('./src/assets/images/bg-triangle.svg')",
         pentagone: "url('./src/assets/images/bg-pentagon.svg')",
       },
       colors: {
