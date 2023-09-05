@@ -5,14 +5,19 @@ import step2 from "./components/step2.vue";
 import step3 from "./components/step3.vue";
 import step4 from "./components/step4.vue";
 import Rules from "./components/Rules.vue";
+
+import Pierreimg from "./assets/images/icon-rock.svg";
+import Feuilleimg from "./assets/images/icon-paper.svg";
+import Ciseauimg from "./assets/images/icon-scissors.svg";
+
 import { ref, watch } from "vue";
 
 let playedValue = ref("");
 
 let datas = [
-  { nom: "pierre", src: "../assets/images/icon-rock.svg" },
-  { nom: "feuille", src: "../assets/images/icon-paper.svg" },
-  { nom: "ciseau", src: "../assets/images/icon-scissors.svg" },
+  { nom: "feuille", src: Pierreimg },
+  { nom: "pierre", src: Feuilleimg },
+  { nom: "ciseau", src: Ciseauimg },
 ];
 
 let score = ref(0);

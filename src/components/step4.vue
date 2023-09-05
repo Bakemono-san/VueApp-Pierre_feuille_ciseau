@@ -16,7 +16,7 @@ const props = defineProps(["userChoice", "houseChoice", "result"]);
       </div>
       <div class="flex flex-col sm:flex-col-reverse gap-4 items-center">
         <BoutonElement
-          :element=" houseChoice"
+          :element="houseChoice"
           class="relative border-yellow-500"
         >
         </BoutonElement>
