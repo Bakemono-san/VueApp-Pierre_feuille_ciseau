@@ -15,8 +15,8 @@ import { ref, watch } from "vue";
 let playedValue = ref("");
 
 let datas = [
-  { nom: "feuille", src: Pierreimg },
-  { nom: "pierre", src: Feuilleimg },
+  { nom: "pierre", src: Pierreimg },
+  { nom: "feuille", src: Feuilleimg },
   { nom: "ciseau", src: Ciseauimg },
 ];
 
@@ -61,11 +61,14 @@ function checkResult(playedValue, houseChoice) {
     }
     return;
   }
+
+  console.log(playedValue, houseChoice, result);
 }
 
 watch(playedValue, () => {
   houseChoice = datas[Math.floor(Math.random() * 3)];
   checkResult(playedValue.value.nom, houseChoice.nom);
+  console.log(houseChoice);
   checkScore();
 });
 
